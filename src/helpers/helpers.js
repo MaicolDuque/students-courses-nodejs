@@ -1,6 +1,7 @@
 const hbs = require('hbs');
 const funciones = require('.././funciones');
 
+
 hbs.registerHelper('obtenerPromedio', (estudiante) => {
 	return (estudiante.matematicas+estudiante.ingles+estudiante.programacion)/3;
 });

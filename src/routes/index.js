@@ -2,9 +2,12 @@
  * @author: Maicol Felipe Duque Urrea <maicolduque01@gmail.com>
  */
 
+ const estudiantes = require("../services/estudiante");
 
  module.exports = (app) => {
-    //Views
+
+  app.use("",estudiantes);
+
   app.get('/', (req, res ) => {
     res.render('index', {
       titulo: 'Inicio'		
@@ -27,15 +30,15 @@
           matematicas: parseInt(req.body.matematicas),
           ingles: parseInt(req.body.ingles),
           programacion: parseInt(req.body.programacion)
-          }	
+      }	
     })	
   });
 
-  app.get('/listado', (req, res ) => {
-    res.render('listado', {
-      titulo: 'Listado de Estudiantes'		
-    })	
-  });
+  // app.get('/listado', (req, res ) => {
+  //   res.render('listado', {
+  //     titulo: 'Listado de Estudiantes'		
+  //   })	
+  // });
 
   app.get('/actualizar', (req, res ) => {
     res.render('actualizar', {

@@ -17,7 +17,19 @@ function index(req, res) {
 // Create student
 function create(req, res) {
   return Estudiante.create(req.body)
-    .then(res)
+    .then(resp => {
+      let newEstudiante = {	
+        nombre: req.body.nombre,
+        matematicas: parseInt(req.body.matematicas),
+        ingles: parseInt(req.body.ingles),
+        programacion: parseInt(req.body.programacion)
+      }
+            
+      res.render('calculos', {
+        titulo: 'Calcular Promedio',
+        estudiante: newEstudiante
+      })	
+    })
     .catch(res);
     // .then(respondWithResult(res, 201))
     // .catch(handleError(res));

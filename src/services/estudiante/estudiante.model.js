@@ -8,9 +8,9 @@ const {Schema} = mongoose;
 
 const EstudianteSchema =  new Schema({
   nombre:       {type: String, required: true },
-  matematicas:  {type: String},
-  ingles:       {type: String},
-  programacion: {type: String}
+  matematicas:  {type: Number},
+  ingles:       {type: Number},
+  programacion: {type: Number}
 })
 
 const Estudiante = mongoose.model('Estudiante', EstudianteSchema)
