@@ -29,9 +29,6 @@ const server = http.createServer(app);
 configExpress(app);
 configViewsPartials(app, express);
 routes(app);
-app.get("/test", (req, res) => {
-	res.send("Hello World 03")
-})
 
 server.listen(config.port, () => {
 	console.log (`servidor en el puerto ${config.port}`);
