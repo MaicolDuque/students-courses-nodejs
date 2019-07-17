@@ -20,13 +20,16 @@ const UsuarioSchema = new Schema({
 
 const CursoSchema =  new Schema({
   nombre:       {type: String, required: true },
-  id:           {type: Number},
+  id:           {type: Number, unique: true},
   modalidad:    {type: String},
   valor:        {type: String},
   descripcion:  {type: String},
   intensidad:   {type: String},
   estado:       {type: String},
-  usuarios:     [UsuarioSchema]
+  usuarios:     {
+                  type: [UsuarioSchema],
+                  default: null
+                }
 })
 
 CursoSchema.plugin(uniqueValidator, { message: 'Error, el campo {PATH} debe ser único.' });

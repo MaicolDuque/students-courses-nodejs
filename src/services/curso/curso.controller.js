@@ -33,25 +33,28 @@ function index(req, res) {
 
 // Create Course
 function create(req, res) {
-  Curso.findById(req.id).exec()
-  .then(existe => {         
-    let creoCurso = false;
-    console.log(existe)
-    if(!existe){
-      creoCurso = true;
-      return Curso.create(req.body)
-        .then(resp => {       
-          res.render("agregar-curso", {
-            curso: creoCurso,
-            mensajeOk: "Curso creado exitosamente!",
-            mensajeFail: "Ya existe un curso con este ID"
-          }) 
-        })
-        .catch(res);
-    }
+creoCurso = true;
+console.log(req.body)
+let curso = {
+  id: req.body.id,
+  nombre: req.body.nombre,
+  modalidad: req.body.modalidad,
+  valor: req.body.valor,
+  descripcion: req.body.descripcion,
+  intensidad: req.body.intensidad,
+  estado: req.body.estado,
+}
 
-  });
-    
+Curso.create(curso)
+  .then(resp => {       
+    res.render("agregar-curso", {
+      curso: creoCurso,
+      mensajeOk: "Curso creado exitosamente!",
+      mensajeFail: "Ya existe un curso con este ID"
+    }) 
+  })
+  .catch(res);
+     
 }
 
 
