@@ -19,8 +19,8 @@ const UsuarioSchema = new Schema({
 
 
 const CursoSchema =  new Schema({
-  nombre:       {type: String, required: true },
   id:           {type: Number, unique: true},
+  nombre:       {type: String, required: true },
   modalidad:    {type: String},
   valor:        {type: String},
   descripcion:  {type: String},
@@ -28,7 +28,7 @@ const CursoSchema =  new Schema({
   estado:       {type: String},
   usuarios:     {
                   type: [UsuarioSchema],
-                  default: null
+                  default: []
                 }
 })
 

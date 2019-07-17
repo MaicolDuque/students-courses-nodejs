@@ -33,27 +33,27 @@ function index(req, res) {
 
 // Create Course
 function create(req, res) {
-creoCurso = true;
-console.log(req.body)
-let curso = {
-  id: req.body.id,
-  nombre: req.body.nombre,
-  modalidad: req.body.modalidad,
-  valor: req.body.valor,
-  descripcion: req.body.descripcion,
-  intensidad: req.body.intensidad,
-  estado: req.body.estado,
-}
+  let creoCurso = true;
+  console.log(req.body)
+  let curso = {
+    id: req.body.id,
+    nombre: req.body.nombre,
+    modalidad: req.body.modalidad,
+    valor: req.body.valor,
+    descripcion: req.body.descripcion,
+    intensidad: req.body.intensidad,
+    estado: req.body.estado,
+  }
 
-Curso.create(curso)
-  .then(resp => {       
-    res.render("agregar-curso", {
-      curso: creoCurso,
-      mensajeOk: "Curso creado exitosamente!",
-      mensajeFail: "Ya existe un curso con este ID"
-    }) 
-  })
-  .catch(res);
+  Curso.create(req.body)
+    .then(resp => {       
+      res.render("agregar-curso", {
+        curso: creoCurso,
+        mensajeOk: "Curso creado exitosamente!",
+        mensajeFail: "Ya existe un curso con este ID"
+      }) 
+    })
+    .catch(handleError(res));
      
 }
 
@@ -169,6 +169,8 @@ function handleError(res, code) {
     res.status(statusCode).send(err);
   };
 }
+
+
 
 module.exports = {
   index,
