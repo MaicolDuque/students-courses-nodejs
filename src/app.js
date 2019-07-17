@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const express = require('express')
 const http = require('http');
 const config = require('./config');
-// const configExpress = require('./config/express');
-// const configViewsPartials = require('./config/viewsPartials');
+const configExpress = require('./config/express');
+const configViewsPartials = require('./config/viewsPartials');
 // const routes = require("./routes/");
 
 // Connect to MongoDB
@@ -27,8 +27,8 @@ mongoose.connect(config.mongo.uri, { useNewUrlParser: true }, (error, result) =>
 const app = express();
 const server = http.createServer(app);
 
-// configExpress(app);
-// configViewsPartials(app, express);
+configExpress(app);
+configViewsPartials(app, express);
 // routes(app);
 app.get("/", (req, res) => {
 	res.send("Hello World")

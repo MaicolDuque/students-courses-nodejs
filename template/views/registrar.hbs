@@ -1,0 +1,42 @@
+{{>header}}
+
+
+
+<div class="card">
+  <div class="card-header">
+    Registro de Usuarios
+  </div>
+  <div class="card-body">
+  <form action="/registrar" method="post">
+      <div class="form-row">
+        <div class="col">
+          <input type="text" required="required" class="form-control" name="documento" placeholder="Documento de identidad">
+        </div>
+        <div class="col">
+          <input type="text" required="required" class="form-control" name="correo" placeholder="Correo electrónico">
+        </div>
+      </div>
+
+      <div class="form-row my-2">
+        <div class="col">
+          <input type="text" required="required" class="form-control" name="nombre" placeholder="Nombre Completo">
+        </div>
+        <div class="col">
+          <input type="text" required="required" class="form-control" name="telefono" placeholder="Telefono">
+        </div>
+      </div>
+
+      <input type="hidden" name="rol" value="aspirante">
+      
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark">REGISTRAR</button>
+      </div>
+      
+    </form>
+  </div>
+</div>
+
+
+
+
+{{>footer}}
