@@ -5,14 +5,13 @@ const http = require('http');
 const config = require('./config');
 const configExpress = require('./config/express');
 const configViewsPartials = require('./config/viewsPartials');
-// const routes = require("./routes/");
+const routes = require("./routes/");
 
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, { useNewUrlParser: true }, (error, result) => {
 	if(error){
 		return console.log(error);
 	}
-
 	console.log("conectado!")
 });
 // mongoose.connection.on('error', (err) => {
@@ -29,9 +28,9 @@ const server = http.createServer(app);
 
 configExpress(app);
 configViewsPartials(app, express);
-// routes(app);
-app.get("/", (req, res) => {
-	res.send("Hello World")
+routes(app);
+app.get("/test", (req, res) => {
+	res.send("Hello World 03")
 })
 
 server.listen(config.port, () => {
