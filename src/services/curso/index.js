@@ -14,6 +14,7 @@ router.get('/listado', (req, res ) => {
   })	
 });
 
+<<<<<<< HEAD
 const auth = function(req, res, next) {
   if (req.session.auth){
     return next()
@@ -29,6 +30,16 @@ router.post("/agregar-usuario-curso", auth,  controller.agregarUsuarioCurso)
 router.get("/actualizar", auth,  controller.updateState);
 router.get("/ver-inscritos", auth,  controller.seeSuscribed);
 router.get("/eliminar-usuario", auth,  controller.deleteUserCourse);
+=======
+router.post("/agregar-curso", controller.create);
+router.get("/ver-cursos", controller.index);
+router.get("/curso", controller.show);
+router.get("/inscribir-curso", controller.coursesAvailable);
+router.post("/agregar-usuario-curso", controller.agregarUsuarioCurso)
+router.get("/actualizar", controller.updateState);
+router.get("/ver-inscritos", controller.seeSuscribed);
+router.get("/eliminar-usuario", controller.deleteUserCourse);
+>>>>>>> dcacd15587b02f254561642a2545a56678e768cd
  
 
 module.exports = router;

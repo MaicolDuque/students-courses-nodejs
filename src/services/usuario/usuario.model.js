@@ -14,8 +14,12 @@ const UsuarioSchema = new Schema({
   nombre:    String,
   correo:    String,
   telefono:  String,
+<<<<<<< HEAD
   rol:       String,
   avatar:    Buffer
+=======
+  rol:       String
+>>>>>>> dcacd15587b02f254561642a2545a56678e768cd
 })
 
 UsuarioSchema.plugin(uniqueValidator, { message: 'Error, el campo {PATH} debe ser único.' });
