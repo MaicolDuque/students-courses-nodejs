@@ -1,0 +1,32 @@
+{{>header}}
+  <div class="card">
+  <div class="card-header">
+    Listado de Usuarios
+  </div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Documento</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Avatar</th>          
+        </tr>
+      </thead>
+      <tbody>
+        {{#each usuarios}} 
+          <tr>               
+            <th scope="row">{{ documento }}</th>
+            <td>{{ nombre }}</td>
+            <td>{{ correo }}</td>
+            <td>{{ telefono }}</td>            
+            <td><img src="data:img/png;base64,{{avatar}}" alt="Avatar" style="width: 100px"></td>           
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <img src="" alt="">
+  </div>
+</div>
+{{>footer}}
