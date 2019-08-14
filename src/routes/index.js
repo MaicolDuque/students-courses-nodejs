@@ -8,7 +8,6 @@
 
 
  module.exports = (app) => {
-<<<<<<< HEAD
   const auth = function(req, res, next) {
     if (req.session.auth){
       return next()
@@ -16,24 +15,15 @@
     return res.redirect('login');   
   };
   
-=======
-
->>>>>>> dcacd15587b02f254561642a2545a56678e768cd
   app.use("",estudiantes);
   app.use("",cursos);
   app.use("",usuarios);
 
-<<<<<<< HEAD
   app.get('/',auth, (req, res ) => {
     console.log("SISISIZAS=>", req.session)
     res.render('index', {
       titulo: 'Inicio',
       session: JSON.stringify(req.session)		
-=======
-  app.get('/', (req, res ) => {
-    res.render('index', {
-      titulo: 'Inicio'		
->>>>>>> dcacd15587b02f254561642a2545a56678e768cd
     })	
   });
 

@@ -47,7 +47,7 @@ function create(req, res) {
     from: 'maicolduque01@gmail.com',
     subject: 'Registro Exitoso ok!',
     text: 'Gracias por registrarse...',
-    html: '<strong>Welcome!</strong>',
+    html: `<strong>Welcome ${req.body.nombre}</strong><br> Le damos una cordial bienvenida a la plataforma de estudio online`,
   };  
   console.log(msg);
 
@@ -97,7 +97,8 @@ function login(req, res){
       req.session.nombre = resp.nombre;
       req.session.documento = resp.documento; 
       localStorage.setItem("session", JSON.stringify(req.session));
-      console.log(req.session)      
+      console.log(req.session)     
+      req.session.auth = true 
       res.redirect("/");
     }else{      
       res.render("login");
@@ -109,7 +110,7 @@ function login(req, res){
 
 function sessionDestroy(req, res){
   req.session.destroy(function(err) {
-    localStorage.getItem("session", "")
+    localStorage.setItem("session", "")
     res.redirect("/login");
   })
 }
