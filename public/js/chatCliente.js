@@ -1,5 +1,5 @@
 
-var socket = io.connect('https://nodejs-and-mongoose.herokuapp.com', { 'forceNew': true });
+var socket = io.connect('http://localhost:8080', { 'forceNew': true });
 
 
 //Treaer mensajes de la base de datos
