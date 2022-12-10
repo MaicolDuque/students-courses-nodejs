@@ -9,7 +9,7 @@
     "bootstrap": "^4.3.1",
     "cookies": "^0.7.3",
     "errorhandler": "^1.5.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-hbs": "^2.1.2",
     "express-session": "^1.16.2",
     "hbs": "^4.0.3",
